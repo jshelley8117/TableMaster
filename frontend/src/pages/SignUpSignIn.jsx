@@ -1,7 +1,7 @@
 // File that will have the regristration and sign in
 import { useDispatch, useSelector } from "react-redux";
 import { login, register } from "../redux/apiFetch.js";
-import {Container, Image, Line, LeftContainer, RightContainer, Wrapper, Title, Form, Input, Button, Error} from "../styles/SignUpSignIn.styles.jsx";
+import {Container, ButtonContainer, Image, Line, LeftContainer, RightContainer, Wrapper, Title, Form, Input, Button, Error} from "../styles/SignUpSignIn.styles.jsx";
 import { useState } from "react";
 
 const SignUpSignIn = () => {
@@ -9,6 +9,7 @@ const SignUpSignIn = () => {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("");
     // Grabs user and sets user
     const dispatch = useDispatch();
     const {isFetching, error} = useSelector((state) => state.user);
@@ -16,7 +17,7 @@ const SignUpSignIn = () => {
     // Registers user to redux state
     const handleRegister = (e) => {
         e.preventDefault();
-        register(dispatch, {username, email, password})
+        register(dispatch, {username, email, password, role})
     }
     // Sets the login of user to redux
     const handleSignIn = (e) => {
@@ -35,6 +36,11 @@ const SignUpSignIn = () => {
                     <Form>
                         <Input placeholder="Username" onChange={(e) => setUsername(e.target.value)}/>
                         <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+                        <ButtonContainer>
+                            <Input type="radio" value="host" name="Role" onChange={(e) => setRole(e.target.value)}/>Host
+                            <Input type="radio" value="server" name="Role" onChange={(e) => setRole(e.target.value)}/>Server
+                            <Input type="radio" value="busser" name="Role" onChange={(e) => setRole(e.target.value)}/>Busser
+                        </ButtonContainer>
                         <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                         <Input placeholder="Confirm Password" type="password"/>
                         {error2 && <Error>Error has occurred</Error>}

@@ -9,6 +9,10 @@ export const Container = styled.div`
     overflow: hidden;
 `
 
+export const ButtonContainer = styled.div`
+    display: flex;
+`
+
 export const Image = styled.div`
     background-image: url(https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?cs=srgb&dl=pexels-tae-fuller-1141853.jpg&fm=jpg);
     background-size: cover;
