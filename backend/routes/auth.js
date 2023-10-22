@@ -12,6 +12,7 @@ router.post("/register", async (req, res) => {
       req.body.password,
       process.env.PASS_SEC
     ).toString(),
+    role: req.body.role,
   });
 
   try {
@@ -60,12 +61,5 @@ router.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// LOGOUT
-// router.post("/logout", (req, res) => {
-//   req.logout();
-//   req.session.destroy();
-//   res.redirect('/');
-// });
 
 module.exports = router;

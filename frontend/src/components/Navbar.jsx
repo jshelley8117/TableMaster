@@ -26,7 +26,7 @@ const Navbar = () => {
                 </Center>
                 <Right>
                     {user ? (<Menu><Title style={{cursor: "default"}}>Hello {user.username}</Title><ExitToApp onClick={handleLogout}/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
-                        <Menu>Register/Sign In</Menu>
+                        <Menu>Employee Login</Menu>
                     </MenuLink>)}
                 </Right>
             </Wrapper>
