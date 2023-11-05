@@ -25,7 +25,7 @@ const Navbar = () => {
                 <Center>
                 </Center>
                 <Right>
-                    {user ? (<Menu><Title style={{cursor: "default"}}>Hello {user.username}</Title><ExitToApp onClick={handleLogout}/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
+                    {user ? (<Menu><Title style={{cursor: "default"}}>Logged in as {user.username}</Title><ExitToApp onClick={handleLogout}/></Menu>) : (<MenuLink to="/account-log-in">
                         <Menu>Employee Portal</Menu>
                     </MenuLink>)}
                 </Right>
