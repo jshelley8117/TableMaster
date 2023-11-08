@@ -13,6 +13,7 @@ router.post("/register", async (req, res) => {
       process.env.PASS_SEC
     ).toString(),
     role: req.body.role,
+    secPassword: req.body.secPassword,
   });
 
   try {

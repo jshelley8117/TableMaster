@@ -34,7 +34,7 @@ const SignIn = () => {
                     <Line></Line>
                     <LinkContainer>
                         <Links to="/forgot-password">Forgot Password?</Links>
-                        <Links to="/register">Already Have an Account?</Links>
+                        <Links to="/register">New User?</Links>
                     </LinkContainer>
             </Wrapper>
         </Container>
