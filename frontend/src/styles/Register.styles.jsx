@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
     margin: 0px;
@@ -15,7 +16,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
     width: 30vw;
-    height: 80vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -92,4 +93,23 @@ export const Button = styled.button`
         color: #dd7973;
     }
 `
+export const Line = styled.hr`
+    width: 90%;
+    height: .3rem;
+    border-radius: .8rem;
+    border: none;
+    margin: 1.5rem 0 1rem 0;
+    background: line-gradient(to right, #14163c 0%, #03217b 79%);
+    backdrop-filter: blur(25px);
+`
 
+export const LinkContainer = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem 0 3rem 0;
+    width: 80%;
+`
+
+export const Links = styled(Link)`
+    cursor: pointer;
+`

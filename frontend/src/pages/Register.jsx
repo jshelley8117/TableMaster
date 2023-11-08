@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../redux/apiFetch.js";
 import { useState } from "react";
-import { Container, Title, InputContainer, Input, ButtonContainer, Error, Button, Wrapper } from "../styles/Register.styles.jsx";
+import { Line, LinkContainer, Links, Container, Title, InputContainer, Input, ButtonContainer, Error, Button, Wrapper } from "../styles/Register.styles.jsx";
 
 const Register = () => {
     // This is for the register account state
@@ -67,6 +67,10 @@ const Register = () => {
                             <Button onClick={handleRegister} disabled={isFetchingReg}>Create Account</Button>
                         </ButtonContainer>
                     </InputContainer>
+                    <Line></Line>
+                    <LinkContainer>
+                        <Links to="/account-log-in">Already Have an Account?</Links>
+                    </LinkContainer>
             </Wrapper>
         </Container>
     )
