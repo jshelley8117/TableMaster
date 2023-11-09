@@ -18,7 +18,7 @@ For our project if you don't have an IDE of preference use Visual Studio Code. <
 
 10. In the split panes you will want one terminal in the frontend directory and one in the backend directory. Type "cd frontend" on one and "cd backend" on the other.
 11. In both panes run the command "npm install", this will download all of the dependencies in the package lock json file.
-12. Next in both the frontend folder and the backend folder create a new file named **".env"** <br/>
+12. Next in the backend folder create a new file named **".env"** <br/>
 ![image](https://github.com/Brandon-Price/SWE-Project/assets/90214909/cbdb4626-508f-4e11-b5a1-a2cf2ec7bec1)
 ![image](https://github.com/Brandon-Price/SWE-Project/assets/90214909/424e429d-a2fc-4bb5-b084-2236a8dcd660)
 <br/>
