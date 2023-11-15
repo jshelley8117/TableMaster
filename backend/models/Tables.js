@@ -9,4 +9,4 @@ const TableSchema = new mongoose.Schema(
     },
 );
 
-module.exports = mongoose.model("Table", TableSchema);  
+module.exports = mongoose.model("Tables", TableSchema);  
