@@ -1,6 +1,7 @@
 import { ExitToApp } from '@material-ui/icons';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../redux/userSlice.js';
+import logo from '../res/TableMaster.png';
 import { Title, MenuLink, Container, Wrapper, Left, Center, Right, Logo, Menu  } from "../styles/Navbar.styles.jsx"
 
 // Creating navigation bar
@@ -19,7 +20,7 @@ const Navbar = () => {
             <Wrapper>
                 <Left>
                 <MenuLink to="/">
-                    <Logo>TBD</Logo>
+                    <img src={logo}  alt="Logo" style={{height: 50, width: 150, borderRadius: 15}}/>
                 </MenuLink>
                 </Left>
                 <Center>
