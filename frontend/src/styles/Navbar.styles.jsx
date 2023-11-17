@@ -7,7 +7,7 @@ export const Container = styled.nav`
     z-index: 999;
     height: 10%;
     width: 100%;
-    background-color: white;
+    background-color: #3D3B3B;
 `
 
 export const Wrapper = styled.div`
@@ -30,6 +30,7 @@ export const Center = styled.div`
 `
 
 export const Right = styled.div`
+    color: white;
     flex: 1;
     display: flex;
     align-items: center;
