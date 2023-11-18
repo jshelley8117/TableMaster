@@ -59,7 +59,7 @@ const Register = () => {
                         <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                         <Input placeholder="Confirm Password" type="password" onChange={(e) => handleConfirmPassword(e.target.value)}/>
                         <Input placeholder="Employee Role" type="role" onChange={(e) => handleRole(e.target.value)}/>
-                        <p>Security Question: Name of first pet</p>
+                        <p style={{marginTop: 4, marginBottom: 5, letterSpacing:1, fontWeight: 'bold', fontSize: 22}}>Security Question: Name of first pet</p>
                         <Input placeholder="Save Answer" onChange={(e) => setSecurityQuestion(e.target.value)}/>
                         {passwordMatchError && <Error>Passwords do not match</Error>}
                         {error2 && <Error>Error has occurred</Error>}

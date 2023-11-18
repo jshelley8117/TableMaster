@@ -45,7 +45,7 @@ export const InputContainer = styled.div`
 `
 
 export const Input = styled.input`
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     color: white;
     border-radius: 2rem;
@@ -61,6 +61,11 @@ export const Input = styled.input`
         box-shadow: 0 0 0 0.2rem white;
         backdrop-filter: blur(12rem)
         border-radius: 2rem;
+        transition: 0.5s;
+    }
+    &::placeholder {
+        color: white;
+        opacity: .55;
     }
 `
 
@@ -109,8 +114,13 @@ export const LinkContainer = styled.div`
     justify-content: space-evenly;
     margin: 2rem 0 3rem 0;
     width: 80%;
+    
 `
 
 export const Links = styled(Link)`
     cursor: pointer;
+    color: white;
+    &:hover, &:focus{
+        color:white;
+    }
 `

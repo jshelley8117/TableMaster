@@ -42,7 +42,8 @@ export const Logo = styled.h1`
 `
 
 export const Menu = styled.div`
-    font-size: 16px;
+    font-size: 20px;
+    color: white;
     cursor: pointer;
     margin-left: 20px;
     padding: 0px;
@@ -50,7 +51,7 @@ export const Menu = styled.div`
 `
 
 export const MenuLink = styled(Link)`
-    color: black;
+    color: white;
     text-decoration: none;
 
     &:hover, &:focus{
