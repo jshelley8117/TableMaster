@@ -61,6 +61,11 @@ export const Input = styled.input`
         box-shadow: 0 0 0 0.2rem white;
         backdrop-filter: blur(12rem)
         border-radius: 2rem;
+        transition: 0.5s;
+    }
+    &::placeholder {
+        color: white;
+        opacity: .55;
     }
 `
 
@@ -113,4 +118,8 @@ export const LinkContainer = styled.div`
 
 export const Links = styled(Link)`
     cursor: pointer;
+    color: white;
+    &:hover, &:focus{
+        color:white;
+    }
 `

@@ -7,7 +7,7 @@ export const Container = styled.nav`
     z-index: 999;
     height: 10%;
     width: 100%;
-    background-color: white;
+    background-color: #3D3B3B;
 `
 
 export const Wrapper = styled.div`
@@ -30,6 +30,7 @@ export const Center = styled.div`
 `
 
 export const Right = styled.div`
+    color: white;
     flex: 1;
     display: flex;
     align-items: center;
@@ -41,7 +42,8 @@ export const Logo = styled.h1`
 `
 
 export const Menu = styled.div`
-    font-size: 16px;
+    font-size: 20px;
+    color: white;
     cursor: pointer;
     margin-left: 20px;
     padding: 0px;
@@ -49,7 +51,7 @@ export const Menu = styled.div`
 `
 
 export const MenuLink = styled(Link)`
-    color: black;
+    color: white;
     text-decoration: none;
 
     &:hover, &:focus{

@@ -1,4 +1,4 @@
-const Table = require("../models/Table");
+const Table = require("../models/Tables");
 const {
     verifyToken,
     verifyTokenAndAuthorization,
