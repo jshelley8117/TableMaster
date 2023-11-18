@@ -19,7 +19,7 @@ const Navbar = () => {
             <Wrapper>
                 <Left>
                 <MenuLink to="/">
-                    <Logo>TBD</Logo>
+                    <Logo>TableMaster</Logo>
                 </MenuLink>
                 </Left>
                 <Center>
