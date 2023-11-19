@@ -9,15 +9,12 @@ const router = require("express").Router();
 
 //UPDATE
 router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
-  // Might have to change this for the forgot password
-  // Or make one that is similar
   if (req.body.password) {
     req.body.password = CryptoJS.AES.encrypt(
       req.body.password,
       process.env.PASS_SEC
     ).toString();
   }
-
   try {
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,

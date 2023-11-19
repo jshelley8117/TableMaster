@@ -52,12 +52,40 @@ router.post("/login", async (req, res) => {
         isAdmin: user.isAdmin,
       },
       process.env.JWT_SEC,
-      {expiresIn:"3d"}
+      {expiresIn:"1d"}
     );
 
     const { password, ...others } = user._doc;
 
     res.status(200).json({...others, accessToken});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//UPDATE PASSWORD
+router.post("/password", async (req, res) => {
+  // const { email, secPassword, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email: req.body.email });
+
+    if (!user || user.secPassword !== req.body.secPassword) {
+      return res.status(400).json('Invalid email or secPassword');
+    }
+
+    // Encrypt the new password with the same key/salt
+    const newEncryptedPassword = CryptoJS.AES.encrypt(
+      req.body.password,
+      process.env.PASS_SEC
+    ).toString();
+
+    // Update the user's password
+    user.password = newEncryptedPassword;
+
+    await user.save();
+
+    res.status(200).json({ message: 'Password updated successfully' });
   } catch (err) {
     res.status(500).json(err);
   }
