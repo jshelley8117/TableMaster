@@ -41,13 +41,14 @@ export const Logo = styled.h1`
     font-weight:bold;
 `
 
-export const Menu = styled.div`
+export const Menu1 = styled.div`
     font-size: 20px;
     color: white;
     cursor: pointer;
     margin-left: 20px;
     padding: 0px;
     display: flex;
+    align-items: center;
 `
 
 export const MenuLink = styled(Link)`

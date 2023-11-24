@@ -44,17 +44,17 @@ const ForgotPassword = () => {
             <Wrapper>
                 <Title>Forgot Password</Title>
                 <InputContainer>
-                <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-                <Input placeholder="Security Password" onChange={(e) => setSecPassword(e.target.value)}/>
-                <Input placeholder="New Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
-                <Input placeholder="Confirm Password" type="password" onChange={(e) => handleConfirmPassword(e.target.value)}/>
-                {passwordMatchError && <Error>Passwords do not match</Error>}
-                <ButtonContainer>
-                    <Button onClick={handleRegister}>Update Password</Button>
-                </ButtonContainer>
-                {error3 && <Error>Error has occurred</Error>}
-                </InputContainer>
-                <Line></Line>
+                    <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+                    <Input placeholder="Security Password" onChange={(e) => setSecPassword(e.target.value)}/>
+                    <Input placeholder="New Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
+                    <Input placeholder="Confirm Password" type="password" onChange={(e) => handleConfirmPassword(e.target.value)}/>
+                    {passwordMatchError && <Error>Passwords do not match</Error>}
+                    <ButtonContainer>
+                        <Button onClick={handleRegister} disabled={isFetchingForgot}>Update Password</Button>
+                    </ButtonContainer>
+                    {error3 && <Error>Error has occurred</Error>}
+                    </InputContainer>
+                    <Line></Line>
                 <LinkContainer>
                     <Links to="/account-log-in">Back to Log In</Links>
                 </LinkContainer>

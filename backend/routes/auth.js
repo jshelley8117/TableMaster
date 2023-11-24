@@ -14,6 +14,7 @@ router.post("/register", async (req, res) => {
     ).toString(),
     role: req.body.role,
     secPassword: req.body.secPassword,
+    profilePic: "",
   });
 
   try {
@@ -89,6 +90,17 @@ router.post("/password", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+//UPDATE PROFILE PICTURE
+router.post("/profile-picture", async (req, res) => {
+    const user = await User.findOne({ email: req.body.email });
+
+    // Update the user's profile picture
+    user.profilePic = req.body.profilePic;
+    await user.save();
+
+    res.status(200).json({ message: 'Profile picture updated successfully' });
 });
 
 module.exports = router;
