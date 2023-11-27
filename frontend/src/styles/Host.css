@@ -1,0 +1,25 @@
+.container {
+    background-color: gray;
+}
+.tablePreview {
+    display: flex;
+    color: white;
+    text-align: center;
+    height: 100px;
+    margin-top: 20px;
+    border: 2px solid black;
+}
+#welcomeBanner {
+    color:black;
+    text-align: center;
+}
+.tableTitle {
+    color: #ad03fc;
+    margin-left: 30%;
+    padding-top: 20px;
+}
+.tableInfo {
+    text-align: left;
+    font-weight: bold;
+    padding: 20px 20px;
+}

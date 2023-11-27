@@ -29,7 +29,7 @@ const Account = () => {
                     <Title>Account Detail</Title>
                     <Line></Line>
                     <Title>Upload a Profile Picture</Title>
-                    {user.profilePic !== null ? (<Avatar style={{height: "200px", width: "200px"}} src={user.profilePic}/>) 
+                    {user && user.profilePic !== null ? (<Avatar style={{height: "200px", width: "200px"}} src={user.profilePic}/>) 
                                 : (<Avatar/>)}
                     <InputContainer>
                         <Input placeholder="Profile Picture URL" onChange={(e) => setPic(e.target.value)}/>
