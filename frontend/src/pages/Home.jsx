@@ -9,9 +9,11 @@ const Home = () => {
     return (
         <div>
             <Navbar/>
+            <br/>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '40vh', marginBottom:'45px'}}>
                 <Carousel/>
             </div>
+            <br/>
             <h1 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth:'800px', margin:'0 auto'}}>
             Transforming the way you run your restaurant. Our intuitive management app brings efficiency to your fingertips, 
             streamlining operations, enhancing customer experiences, and empowering your team. From order to table, 

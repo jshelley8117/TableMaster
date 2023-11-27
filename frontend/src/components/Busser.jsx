@@ -9,6 +9,7 @@ const Busser = () => {
     // Fetch the table object and filter it for the bussers view
     const { data: tables, isPending, error } = useFetch('http://localhost:5000/api/tables');
 
+    // host can update status to open
     const onClean = (tableId) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
