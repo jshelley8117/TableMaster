@@ -1,27 +1,29 @@
 import {loginFetch, loginFail, loginSuccess, loginRegisterFail, forgotPasswordSuccess, forgotPasswordFail, updateProfilePic} from "./userSlice";
 import { publicRequest } from "../request";
 
-export const login = async (dispatch, user) => {
+export const login = async (dispatch, user, history) => {
     dispatch(loginFetch());
 
     try{
         const res = await publicRequest.post("/auth/login", user);
         dispatch(loginSuccess(res.data));
-        console.log(res.data)
+        console.log(res.data);
+        history("/dashboard");
     } catch(err){
-        dispatch(loginFail())
+        dispatch(loginFail());
     }
 }
 
-export const register = async (dispatch, user) => {
+export const register = async (dispatch, user, history) => {
     dispatch(loginFetch());
 
     try{
         const res = await publicRequest.post("/auth/register", user);
         dispatch(loginSuccess(res.data));
-        console.log(res.data)
+        console.log(res.data);
+        history("/dashboard");
     } catch(err){
-        dispatch(loginRegisterFail())
+        dispatch(loginRegisterFail());
     }
 }
 
