@@ -28,6 +28,8 @@ export const register = async (dispatch, user, history) => {
 }
 
 export const forgotPassword = async (dispatch, user, history) => {
+    dispatch(loginFetch());
+  
     try {
       const res = await publicRequest.post("/auth/password", user);
       dispatch(forgotPasswordSuccess(res.data));
@@ -40,6 +42,8 @@ export const forgotPassword = async (dispatch, user, history) => {
 };
 
 export const updateProfilePicture = (user, profilePic) => async (dispatch) => {
+  dispatch(loginFetch());
+  
     try {
       const res = await publicRequest.post("/auth/profile-picture", {
         email: user.email,
