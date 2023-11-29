@@ -7,7 +7,7 @@ import axios from 'axios';
 // Creating what the Server will see specifically
 const Server = () => {
     // Call the table object and filter it for the servers view
-    const { data: tables, isPending, error } = useFetch('http://localhost:5000/api/table');
+    const { data: tables, isPending, error } = useFetch('http://localhost:5000/api/tables');
 
     const onAppetizer = (tableId) => {
         try {
@@ -15,6 +15,7 @@ const Server = () => {
                 state: 'Appetizer'
             })
             console.log("Table appetizer!")
+            window.location.reload()
         }
         catch(err) {
             console.err("Error updating table status: ", err)
@@ -27,6 +28,7 @@ const Server = () => {
                 state: 'Main Course'
             })
             console.log("Table main course!")
+            window.location.reload()
         }
         catch(err) {
             console.err("Error updating table status: ", err)
@@ -39,6 +41,7 @@ const Server = () => {
                 state: 'Awaiting Payment'
             })
             console.log("Table awaiting payment!")
+            window.location.reload()
         }
         catch(err) {
             console.err("Error updating table status: ", err)
@@ -48,9 +51,10 @@ const Server = () => {
     const onAwaitingClean = (tableId) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
-                state: 'Needs to be cleaned'
+                state: 'Needs Cleaning'
             })
             console.log("Table awaiting clean!")
+            window.location.reload()
         }
         catch(err) {
             console.err("Error updating table status: ", err)
