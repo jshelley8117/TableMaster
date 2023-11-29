@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 
 export default function BasicTable({ tables, onAppetizer, onMainCourse, onAwaitingPayment, onAwaitingClean }) {
   const filteredTables = tables.filter(
-    (table) => table.status === "Occupied" || table.state === "Appetizer" || table.state === "Main Course" || table.state === "Awaiting Payment"
+    (table) => table.state === "Occupied" || table.state === "Appetizer" || table.state === "Main Course" || table.state === "Awaiting Payment"
   );
 
     const handleAppetizer = (tableId) => {
@@ -53,7 +53,7 @@ export default function BasicTable({ tables, onAppetizer, onMainCourse, onAwaiti
                 <TableCell component="th" scope="row">
                   {table.label}
                 </TableCell>
-                <TableCell align="left">{table.status}</TableCell>
+                <TableCell align="left">{table.state}</TableCell>
                 <TableCell align="left">{table.seatCount}</TableCell>
                 <TableCell align="left">{table.server}</TableCell>
                 <TableCell align="left">

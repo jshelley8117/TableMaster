@@ -16,6 +16,7 @@ const Host = () => {
                 state: 'Reserved'
             })
             console.log("Table reserved!")
+            window.location.reload()
         }
         catch(err) {
             console.err("Error updating table status: ", err)
@@ -28,6 +29,7 @@ const Host = () => {
                 state: 'Occupied'
             })
             console.log("Table occupied!")
+            window.location.reload()
         }
         catch(err) {
             console.err("Error updating table status: ", err)

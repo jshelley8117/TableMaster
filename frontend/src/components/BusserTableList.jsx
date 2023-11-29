@@ -42,7 +42,7 @@ export default function BasicTable({ tables, onClean }) {
                 <TableCell component="th" scope="row">
                   {table.label}
                 </TableCell>
-                <TableCell align="left">{table.status}</TableCell>
+                <TableCell align="left">{table.state}</TableCell>
                 <TableCell align="left">{table.seatCount}</TableCell>
                 <TableCell align="left">{table.server}</TableCell>
                 <TableCell align="left">
