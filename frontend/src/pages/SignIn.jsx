@@ -30,7 +30,7 @@ const SignIn = () => {
                         <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                         {error && <Error>Error has occurred</Error>}
                         <ButtonContainer>
-                            <Button onClick={handleSignIn} disabled={isFetching}>Sign In</Button>
+                            <Button onClick={handleSignIn} disabled={isFetching} >Sign In</Button>
                         </ButtonContainer>
                     </InputContainer>
                     <Line></Line>

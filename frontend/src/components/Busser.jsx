@@ -13,7 +13,7 @@ const Busser = () => {
     const onClean = (tableId) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
-                status: 'Open'
+                state: 'Open'
             })
             console.log("Table cleaned!")
         } catch(err) {

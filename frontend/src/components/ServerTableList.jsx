@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 
 export default function BasicTable({ tables, onAppetizer, onMainCourse, onAwaitingPayment, onAwaitingClean }) {
   const filteredTables = tables.filter(
-    (table) => table.status === "Occupied" || table.status === "Appetizer" || table.status === "Main Course" || table.status === "Awaiting Payment"
+    (table) => table.status === "Occupied" || table.state === "Appetizer" || table.state === "Main Course" || table.state === "Awaiting Payment"
   );
 
     const handleAppetizer = (tableId) => {
@@ -57,16 +57,16 @@ export default function BasicTable({ tables, onAppetizer, onMainCourse, onAwaiti
                 <TableCell align="left">{table.seatCount}</TableCell>
                 <TableCell align="left">{table.server}</TableCell>
                 <TableCell align="left">
-                  <Button variant="outlined" onClick={() => {handleAppetizer(table.label)}}>Appetizer</Button>
+                  <Button variant="outlined" onClick={() => {handleAppetizer(table._id)}}>Appetizer</Button>
                 </TableCell>
                 <TableCell align="left">
-                  <Button variant="outlined" onClick={() => {handleMainCourse(table.label)}}>Main Course</Button>
+                  <Button variant="outlined" onClick={() => {handleMainCourse(table._id)}}>Main Course</Button>
                 </TableCell>
                 <TableCell align="left">
-                    <Button variant="outlined" onClick={() => {handleAwaitingPayment(table.label)}}>Payment</Button>
+                    <Button variant="outlined" onClick={() => {handleAwaitingPayment(table._id)}}>Payment</Button>
                 </TableCell>
                 <TableCell align="left">
-                    <Button variant="outlined" onClick={() => {handleAwaitingClean(table.label)}}>Ready to clean</Button>
+                    <Button variant="outlined" onClick={() => {handleAwaitingClean(table._id)}}>Ready to clean</Button>
                 </TableCell>
               </TableRow>
             ))}

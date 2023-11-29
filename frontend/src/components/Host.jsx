@@ -7,13 +7,13 @@ import axios from 'axios';
 // Creating what the Host will see specifically
 const Host = () => {
     // Call the table object and filter it for the hosts view
-    const { data: tables, isPending, error } = useFetch('http://localhost:5000/api/table');
+    const { data: tables, isPending, error } = useFetch('http://localhost:5000/api/tables');
 
      // host can update status to reserved and occupied
     const onReserve = (tableId) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
-                status: 'Reserved'
+                state: 'Reserved'
             })
             console.log("Table reserved!")
         }
@@ -25,7 +25,7 @@ const Host = () => {
     const onOccupied = (tableId) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
-                status: 'Occupied'
+                state: 'Occupied'
             })
             console.log("Table occupied!")
         }
