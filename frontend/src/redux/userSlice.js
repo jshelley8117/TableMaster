@@ -20,12 +20,18 @@ const userSlice = createSlice({
             state.isFetching = false;
             state.currentUser = action.payload;
             state.error = false;
-            state.error2 = false;
-            state.error3 = false;
         },
         loginFail:(state)=>{
             state.isFetching = false;
             state.error = true;
+        },
+        registerFetch: (state) =>{
+            state.isFetchingReg = true;
+        },
+        registerSuccess:(state, action) =>{
+            state.isFetchingReg = false;
+            state.currentUser = action.payload;
+            state.error2 = false;
         },
         loginRegisterFail:(state)=>{
             state.isFetchingReg = false;
@@ -33,6 +39,9 @@ const userSlice = createSlice({
         },
         logout: (state) => {
             state.currentUser = null;
+        },
+        forgotPasswordFetch: (state) =>{
+            state.isFetchingForgot = true;
         },
         forgotPasswordSuccess: (state, action) => {
             state.isFetchingForgot = false;
@@ -48,5 +57,5 @@ const userSlice = createSlice({
     },
 });
 
-export const {loginFetch, loginSuccess, loginFail, loginRegisterFail, logout, forgotPasswordFail, forgotPasswordSuccess, updateProfilePic} = userSlice.actions;
+export const {loginFetch, loginSuccess, loginFail, loginRegisterFail, logout, forgotPasswordFail, forgotPasswordSuccess, updateProfilePic, registerSuccess, registerFetch, forgotPasswordFetch} = userSlice.actions;
 export default userSlice.reducer;

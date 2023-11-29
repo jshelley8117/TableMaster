@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../redux/apiFetch.js";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Line, LinkContainer, Links, Container, Title, InputContainer, Input, ButtonContainer, Error, Button, Wrapper } from "../styles/Register.styles.jsx";
 
@@ -12,6 +13,7 @@ const Register = () => {
     const [passwordMatchError, setPasswordMatchError] = useState(false);
     const [roleError, setRoleError] = useState(false);
     const [secPassword, setSecurityQuestion] = useState("");
+    const navigate = useNavigate();
     // Grabs user and sets user
     const dispatch = useDispatch();
     const {isFetchingReg, error2} = useSelector((state) => state.user);
@@ -19,7 +21,7 @@ const Register = () => {
     const handleRegister = (e) => {
         e.preventDefault();
         if (!passwordMatchError || !roleError) {
-            register(dispatch, {username, email, password, role, secPassword})
+            register(dispatch, {username, email, password, role, secPassword}, navigate)
         }
     }
 

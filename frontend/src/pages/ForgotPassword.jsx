@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     const {isFetchingForgot, error3} = useSelector((state) => state.user);
 
     const dispatch = useDispatch();
-    const history = useNavigate();
+    const navigate = useNavigate();
     // Should be changed to handleUpdate
     // To DO add a way to check for the security password
     // Then send the update request
@@ -22,7 +22,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         if (!passwordMatchError) {
             try{
-                forgotPassword(dispatch, {email, secPassword, password}, history);
+                forgotPassword(dispatch, {email, secPassword, password}, navigate);
             } catch (error) {
                 console.error('Password update failed:', error);
             }
