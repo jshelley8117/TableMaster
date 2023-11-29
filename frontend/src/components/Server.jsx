@@ -12,7 +12,7 @@ const Server = () => {
     const onAppetizer = (tableId) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
-                status: 'Appetizer'
+                state: 'Appetizer'
             })
             console.log("Table appetizer!")
         }
@@ -24,7 +24,7 @@ const Server = () => {
     const onMainCourse = (tableId) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
-                status: 'Main Course'
+                state: 'Main Course'
             })
             console.log("Table main course!")
         }
@@ -36,7 +36,7 @@ const Server = () => {
     const onAwaitingPayment = (tableId) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
-                status: 'Awaiting Payment'
+                state: 'Awaiting Payment'
             })
             console.log("Table awaiting payment!")
         }
@@ -48,7 +48,7 @@ const Server = () => {
     const onAwaitingClean = (tableId) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
-                status: 'Needs to be cleaned'
+                state: 'Needs to be cleaned'
             })
             console.log("Table awaiting clean!")
         }

@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 
 export default function BasicTable({ tables, onReserve, onOccupied }) {
   const filteredTables = tables.filter(
-    (table) => table.status === "Open"
+    (table) => table.state === "Open"
   );
 
   const handleReserved = (tableId) => {
@@ -49,10 +49,10 @@ export default function BasicTable({ tables, onReserve, onOccupied }) {
                 <TableCell align="left">{table.seatCount}</TableCell>
                 <TableCell align="left">{table.server}</TableCell>
                 <TableCell align="left">
-                  <Button variant="outlined" onClick={() => {handleReserved(table.label)}}>Reserve</Button>
+                  <Button variant="outlined" onClick={() => {handleReserved(table._id)}}>Reserve</Button>
                 </TableCell>
                 <TableCell align="left">
-                  <Button variant="outlined" onClick={() => {handleOccupied(table.label)}}>Occupy</Button>
+                  <Button variant="outlined" onClick={() => {handleOccupied(table._id)}}>Occupy</Button>
                 </TableCell>
               </TableRow>
             ))}

@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 
 export default function BasicTable({ tables, onClean }) {
   const filteredTables = tables.filter(
-    (table) => table.status === "Needs Cleaning"
+    (table) => table.state === "Needs Cleaning"
   );
 
   const handleCleaned = (tableId) => {
@@ -46,7 +46,7 @@ export default function BasicTable({ tables, onClean }) {
                 <TableCell align="left">{table.seatCount}</TableCell>
                 <TableCell align="left">{table.server}</TableCell>
                 <TableCell align="left">
-                  <Button variant="outlined" onClick={() => {handleCleaned(table.label)}}>Mark As Cleaned</Button>
+                  <Button variant="outlined" onClick={() => {handleCleaned(table._id)}}>Mark As Cleaned</Button>
                 </TableCell>
               </TableRow>
             ))}
