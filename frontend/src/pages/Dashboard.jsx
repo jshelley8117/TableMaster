@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Busser from "../components/Busser.jsx";
 import Server from "../components/Server.jsx";
 import Host from "../components/Host.jsx";
+import Admin from "../components/Admin.jsx";
 
 // Once we create the different components for the employees
 // Import the components, include a auth for viewing using role
@@ -75,6 +76,16 @@ const Dashboard = () => {
       </div>
     </div>
     );
+  }
+  else if ( user.role === 'admin'){
+    return (
+      <div>
+        <Navbar />
+        <Admin />
+      </div>
+      
+
+    )
   }
   else{
     return(
