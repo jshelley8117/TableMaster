@@ -10,7 +10,8 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("https://wallpaperaccess.com/full/1564031.jpg");
+    background-image: url("https://i.imgur.com/EyPLXku.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
 `
 
@@ -32,6 +33,8 @@ export const Wrapper = styled.div`
 export const Title = styled.h2`
     margin: 1rem 0 2rem 0;
     font-size: 30px;
+    color: black;
+    opacity: .75;
 `
 
 export const InputContainer = styled.div`
@@ -47,7 +50,8 @@ export const InputContainer = styled.div`
 export const Input = styled.input`
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    color: white;
+    color: black;
+    opacity: .75;
     border-radius: 2rem;
     width: 80%;
     height: 3rem;
@@ -64,8 +68,8 @@ export const Input = styled.input`
         transition: 0.5s;
     }
     &::placeholder {
-        color: white;
-        opacity: .55;
+        color: black;
+        opacity: .70;
     }
 `
 
@@ -84,8 +88,8 @@ export const Error = styled.span`
 
 export const Button = styled.button`
     padding: 8px;
-    font-size: 17px;
-    background: linear-gradient(to right, #14163c 0%, #03217b 79%);
+    font-size: 20px;
+    background: linear-gradient(to right, SaddleBrown 0%, SaddleBrown 79%);
     cursor: pointer;
     color: white;
     border-radius: 15px;
