@@ -33,7 +33,6 @@ const Host = () => {
                 server: insertServer
             })
             console.log("Table occupied!");
-            console.log(tableId);
             window.location.reload();
         }
         catch(err) {

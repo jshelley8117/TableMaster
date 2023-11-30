@@ -26,10 +26,8 @@ export default function BasicTable({ tables, onRemoveParty, onOccupied }) {
   const [occupyDialogState, setOccupyDialogState] = useState(false);
   const [seatCount, setSeatCount] = useState(1);
   const [server, setServer] = useState("");
-  const [selectedTableId, setSelectedTableId] = useState(null);
 
-  const handleOccupyDialogOpen = (tableId) => {
-    setSelectedTableId(tableId);
+  const handleOccupyDialogOpen = () => {
     setOccupyDialogState(true);
   };
 
@@ -98,7 +96,7 @@ export default function BasicTable({ tables, onRemoveParty, onOccupied }) {
                     variant="outlined"
                     color="success"
                     onClick={() => {
-                      handleOccupyDialogOpen(table._id);
+                      handleOccupyDialogOpen();
                     }}
                   >
                     Occupy
@@ -168,7 +166,7 @@ export default function BasicTable({ tables, onRemoveParty, onOccupied }) {
                         variant="outlined"
                         onClick={() => {
                           handleOccupyDialogClose();
-                          handleOccupied(selectedTableId, seatCount, server);
+                          handleOccupied(table._id, seatCount, server);
                         }}
                       >
                         Occupy Table
