@@ -1,6 +1,7 @@
 // File that will have the regristration and sign in
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/apiFetch.js";
+import { useNavigate } from "react-router-dom";
 import {Links, Container, Title, InputContainer, Input, ButtonContainer, Error, Button, Wrapper, Line, LinkContainer} from "../styles/SignIn.styles.jsx";
 import { useState } from "react";
 
@@ -11,11 +12,12 @@ const SignIn = () => {
     // Grabs user and sets user
     const dispatch = useDispatch();
     const {isFetching, error} = useSelector((state) => state.user);
+    const navigate = useNavigate();
 
     // Sets the login of user to redux
     const handleSignIn = (e) => {
         e.preventDefault();
-        login(dispatch, {username, password})
+        login(dispatch, {username, password}, navigate)
     }
 
 
@@ -28,7 +30,7 @@ const SignIn = () => {
                         <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                         {error && <Error>Error has occurred</Error>}
                         <ButtonContainer>
-                            <Button onClick={handleSignIn} disabled={isFetching}>Sign In</Button>
+                            <Button onClick={handleSignIn} disabled={isFetching} >Sign In</Button>
                         </ButtonContainer>
                     </InputContainer>
                     <Line></Line>

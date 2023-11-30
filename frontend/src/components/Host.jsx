@@ -7,30 +7,36 @@ import axios from 'axios';
 // Creating what the Host will see specifically
 const Host = () => {
     // Call the table object and filter it for the hosts view
-    const { data: tables, isPending, error } = useFetch('http://localhost:5000/api/table');
-
-     // host can update status to reserved and occupied
-    const onReserve = (tableId) => {
+    const { data: tables, isPending, error } = useFetch('http://localhost:5000/api/tables');
+    
+    // host can remove a party from a table
+    const onRemoveParty = (tableId) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
-                status: 'Reserved'
+                state: 'Open',
+                seatCount: 0,
+                server: ''
             })
-            console.log("Table reserved!")
+            console.log("Table removed!");
+            window.location.reload();
         }
         catch(err) {
-            console.err("Error updating table status: ", err)
+            console.err("Error updating table status: ", err);
         }
     }
 
-    const onOccupied = (tableId) => {
+    const onOccupied = (tableId, insertSeatCount, insertServer) => {
         try {
             axios.put(`http://localhost:5000/api/tables/${tableId}`, {
-                status: 'Occupied'
+                state: 'Occupied',
+                seatCount: insertSeatCount,
+                server: insertServer
             })
-            console.log("Table occupied!")
+            console.log("Table occupied!");
+            window.location.reload();
         }
         catch(err) {
-            console.err("Error updating table status: ", err)
+            console.err("Error updating table status: ", err);
         }
     }
 
@@ -39,7 +45,7 @@ const Host = () => {
             <h1 style={{ marginLeft: '20px'}}>Welcome, Host!</h1>
             { error && <div>{ error }</div> }
             { isPending && <div>Loading...</div> }
-            { tables && <HostTableList tables={tables} onReserve={onReserve} onOccupied={onOccupied} /> }
+            { tables && <HostTableList tables={tables} onRemoveParty={onRemoveParty} onOccupied={onOccupied} /> }
         </div>
     )
 }

@@ -7,18 +7,49 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { TextField } from "@mui/material";
 
-export default function BasicTable({ tables, onReserve, onOccupied }) {
-  const filteredTables = tables.filter(
-    (table) => table.status === "Open"
-  );
+export default function BasicTable({ tables, onRemoveParty, onOccupied }) {
+  const filteredTables = tables.filter((table) => table.state === "Open" || table.state === "Occupied");
+  const [occupyDialogState, setOccupyDialogState] = useState(false);
+  const [seatCount, setSeatCount] = useState(1);
+  const [server, setServer] = useState("");
 
-  const handleReserved = (tableId) => {
-    onReserve(tableId)
+  const handleOccupyDialogOpen = () => {
+    setOccupyDialogState(true);
   };
 
-  const handleOccupied = (tableId) => { 
-    onOccupied(tableId)
+  const handleOccupyDialogClose = () => {
+    setOccupyDialogState(false);
+  };
+
+  // need to pass vales from dialog to handleOccupied
+  const handleOccupied = (tableId, insertSeatCount, insertServer) => {
+    onOccupied(tableId, insertSeatCount, insertServer);
+  };
+
+  const handleRemoveParty = (tableId) => {
+    onRemoveParty(tableId);
+  };
+
+  const handleSeatCountChange = (event) => {
+    setSeatCount(event.target.value);
+  };
+
+  const handleServerChange = (event) => {
+    setServer(event.target.value);
   };
 
   return (
@@ -39,20 +70,110 @@ export default function BasicTable({ tables, onReserve, onOccupied }) {
           <TableBody>
             {filteredTables.map((table) => (
               <TableRow
-                key={table.label}
+                key={table._id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
                   {table.label}
                 </TableCell>
-                <TableCell align="left">{table.status}</TableCell>
+                <TableCell align="left">{table.state}</TableCell>
                 <TableCell align="left">{table.seatCount}</TableCell>
                 <TableCell align="left">{table.server}</TableCell>
                 <TableCell align="left">
-                  <Button variant="outlined" onClick={() => {handleReserved(table.label)}}>Reserve</Button>
+                  <Button
+                    variant="outlined"
+                    color="error"
+                    onClick={() => {
+                      handleRemoveParty(table._id);
+                    }}
+                  >
+                    Remove Party
+                  </Button>
                 </TableCell>
+
                 <TableCell align="left">
-                  <Button variant="outlined" onClick={() => {handleOccupied(table.label)}}>Occupy</Button>
+                  <Button
+                    variant="outlined"
+                    color="success"
+                    onClick={() => {
+                      handleOccupyDialogOpen();
+                    }}
+                  >
+                    Occupy
+                  </Button>
+
+                  {/* INSERT DIALOG HERE */}
+                  <Dialog
+                    open={occupyDialogState}
+                    onClose={handleOccupyDialogClose}
+                  >
+                    <DialogTitle>Reserve Table</DialogTitle>
+                    <DialogContent>
+                      <br />
+                      {/* START SEAT COUNT SELECT */}
+                      <Box sx={{ minWidth: 120 }}>
+                        <FormControl fullWidth>
+                          <InputLabel id="seat-count-select-label">
+                            Seat Count
+                          </InputLabel>
+                          <Select
+                            labelId="seat-count-select-label"
+                            id="seat-count-select"
+                            value={seatCount}
+                            label="Seat Count"
+                            onChange={handleSeatCountChange}
+                          >
+                            <MenuItem value={1}>One</MenuItem>
+                            <br />
+                            <MenuItem value={2}>Two</MenuItem>
+                            <br />
+                            <MenuItem value={3}>Three</MenuItem>
+                            <br />
+                            <MenuItem value={4}>Four</MenuItem>
+                            <br />
+                            <MenuItem value={5}>Five</MenuItem>
+                            <br />
+                            <MenuItem value={6}>Six</MenuItem>
+                            <br />
+                            <MenuItem value={7}>Seven</MenuItem>
+                            <br />
+                            <MenuItem value={8}>Eight</MenuItem>
+                            <br />
+                            <MenuItem value={9}>Nine</MenuItem>
+                            <br />
+                            <MenuItem value={10}>Ten</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Box>
+                      {/* END SEAT COUNT SELECT */}
+
+                      <br />
+                      {/* START SERVER TEXTFIELD */}
+                      <TextField
+                        id="server-textfield"
+                        name="server"
+                        label="Enter Server"
+                        variant="standard"
+                        input="text"
+                        onChange={handleServerChange}
+                      />
+                      {/* END SERVER TEXTFIELD */}
+
+                      <br />
+                    </DialogContent>
+                    <DialogActions>
+                      <Button
+                        variant="outlined"
+                        onClick={() => {
+                          handleOccupyDialogClose();
+                          handleOccupied(table._id, seatCount, server);
+                        }}
+                      >
+                        Occupy Table
+                      </Button>
+                    </DialogActions>
+                  </Dialog>
+                  {/* END DIALOG HERE */}
                 </TableCell>
               </TableRow>
             ))}
