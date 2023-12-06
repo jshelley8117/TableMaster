@@ -97,7 +97,7 @@ export default function BasicTable({tables, currentUser}) {
         }
     }
     const createTable = () => {
-        if ((tableLabel) && (tableState) && (tableSeatCount)){
+        if ((tableLabel !== null ) && (tableState !== null ) && (tableSeatCount !== null )){
             try {
                 axios.post(`http://localhost:5000/api/tables`,{ 
                     label: tableLabel,
